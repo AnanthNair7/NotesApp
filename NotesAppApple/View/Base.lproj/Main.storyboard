@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NotesApp-->
+        <!--Items-->
         <scene sceneID="wCx-Un-JYh">
             <objects>
                 <tableViewController id="7Ey-EV-QBp" customClass="ToDoListViewController" customModule="NotesAppApple" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,9 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="cZd-xH-M84">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="7Ey-EV-QBp" id="HHE-6X-gE5"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoItemCell" id="UCg-jZ-7xB">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UCg-jZ-7xB" id="7AD-wb-gff">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
@@ -30,7 +38,7 @@
                             <outlet property="delegate" destination="7Ey-EV-QBp" id="zl4-w6-SKR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="NotesApp" id="HL8-Ip-WpJ">
+                    <navigationItem key="navigationItem" title="Items" id="HL8-Ip-WpJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DeC-oV-1vY">
                             <connections>
                                 <action selector="addButtonTapped:" destination="7Ey-EV-QBp" id="tRe-dI-346"/>
@@ -40,7 +48,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQi-Nm-Wyn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2016.030534351145" y="16.901408450704228"/>
+            <point key="canvasLocation" x="2883" y="17"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3bg-hL-1tY">
@@ -57,12 +65,50 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7Ey-EV-QBp" kind="relationship" relationship="rootViewController" id="oqn-ND-gag"/>
+                        <segue destination="c05-PH-pgq" kind="relationship" relationship="rootViewController" id="g8z-bV-Xpc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rit-di-Ut5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1089.3129770992366" y="16.901408450704228"/>
+        </scene>
+        <!--NotesApp-->
+        <scene sceneID="EuV-6C-m5W">
+            <objects>
+                <tableViewController id="c05-PH-pgq" customClass="CategoryViewController" customModule="NotesAppApple" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Sqc-tW-oFv">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="jOo-Wj-lyP">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jOo-Wj-lyP" id="u0l-bi-Adk">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="c05-PH-pgq" id="Ihe-1e-K7g"/>
+                            <outlet property="delegate" destination="c05-PH-pgq" id="RFy-Ca-LsP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="NotesApp" id="NOi-uf-jan">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xom-BJ-6aS">
+                            <connections>
+                                <action selector="AddBtnTapped:" destination="c05-PH-pgq" id="g1z-Jg-d1h"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="7Ey-EV-QBp" kind="show" identifier="gotoitems" id="kc1-wA-qDL"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qb2-ca-YLw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1922" y="17"/>
         </scene>
     </scenes>
     <resources>
