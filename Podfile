@@ -6,6 +6,7 @@ target 'NotesAppApple' do
   use_frameworks!
 
   # Pods for NotesAppApple
-  pod 'RealmSwift', '~>10' 
+  pod 'RealmSwift', '~>10'
+  pod 'SwipeCellKit'
 
 end
